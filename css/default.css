@@ -5214,33 +5214,33 @@ fieldset[disabled] .button {
 }
 .container.is-fluid {
   max-width: none;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
 }
 @media screen and (min-width: 1088px) {
   .container {
-    max-width: 1018px;
+    max-width: 1048px;
   }
 }
 @media screen and (max-width: 1279px) {
   .container.is-widescreen {
-    max-width: 1210px;
+    max-width: 1240px;
   }
 }
 @media screen and (max-width: 1471px) {
   .container.is-fullhd {
-    max-width: 1402px;
+    max-width: 1432px;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
-    max-width: 1210px;
+    max-width: 1240px;
   }
 }
 @media screen and (min-width: 1472px) {
   .container {
-    max-width: 1402px;
+    max-width: 1432px;
   }
 }
 .content li + li {
@@ -11625,21 +11625,31 @@ figure.highlight .section {
   text-decoration: none !important;
   background-color: #276cda;
 }
+@media screen and (min-width: 1472px) {
+  .is-2-column .container {
+    max-width: 1432px;
+    width: 1432px;
+  }
+  .is-1-column .container {
+    max-width: 1048px;
+    width: 1048px;
+  }
+}
 @media screen and (min-width: 1280px) {
   .is-1-column .container,
   .is-2-column .container {
-    max-width: 1210px;
-    width: 1210px;
+    max-width: 1240px;
+    width: 1240px;
   }
 }
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1088px) {
   .is-2-column .container {
-    max-width: 1402px;
-    width: 1402px;
+    max-width: 1048px;
+    width: 1048px;
   }
   .is-1-column .container {
-    max-width: 1018px;
-    width: 1018px;
+    max-width: 1048px;
+    width: 1048px;
   }
 }
 @media screen and (min-width: 769px), print {
