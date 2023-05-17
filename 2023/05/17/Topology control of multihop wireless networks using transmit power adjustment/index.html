@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Topology control of multihop wireless networks using transmit power adjustment - Hexo</title><link rel="manifest" href="/hexo_blog/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="This paper addresses the problem of controlling the topology of the network by changing the transmit powers of the nodes."><meta property="og:type" content="blog"><meta property="og:title" content="Topology control of multihop wireless networks using transmit power adjustment"><meta property="og:url" content="https://voyager-yupeng.github.io/hexo_blog/2023/05/17/Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="This paper addresses the problem of controlling the topology of the network by changing the transmit powers of the nodes."><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2023-05-16T16:00:00.000Z"><meta property="article:modified_time" content="2023-05-17T12:53:29.423Z"><meta property="article:author" content="Peng Yu"><meta property="article:tag" content="Paper notes"><meta property="twitter:card" content="summary"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://voyager-yupeng.github.io/hexo_blog/2023/05/17/Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment/"},"headline":"Topology control of multihop wireless networks using transmit power adjustment","image":[],"datePublished":"2023-05-16T16:00:00.000Z","dateModified":"2023-05-17T12:53:29.423Z","author":{"@type":"Person","name":"Peng Yu"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://voyager-yupeng.github.io/img/logo-voyager.svg"}},"description":"This paper addresses the problem of controlling the topology of the\r network by changing the transmit powers of the nodes."}</script><link rel="canonical" href="https://voyager-yupeng.github.io/hexo_blog/2023/05/17/Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment/"><link rel="icon" href="/hexo_blog/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/hexo_blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/hexo_blog/"><img src="/hexo_blog/img/logo-voyager.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/hexo_blog/">Home</a><a class="navbar-item" href="/hexo_blog/tags/Paper-notes">Paper notes</a><a class="navbar-item" href="/hexo_blog/tags/Research">Research</a><a class="navbar-item" href="/hexo_blog/archives">Archives</a><a class="navbar-item" href="/hexo_blog/categories">Categories</a><a class="navbar-item" href="/hexo_blog/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-05-16T16:00:00.000Z" title="2023/5/17 00:00:00">2023-05-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-05-17T12:53:29.423Z" title="2023/5/17 20:53:29">2023-05-17</time></span><span class="level-item"><a class="link-muted" href="/hexo_blog/categories/Learn/">Learn</a><span> / </span><a class="link-muted" href="/hexo_blog/categories/Learn/Paper-notes/">Paper notes</a></span></div></div><h1 class="title is-3 is-size-4-mobile">Topology control of multihop wireless networks using transmit power adjustment</h1><div class="content"><p>This paper addresses the problem of controlling the topology of the
+network by <strong>changing the transmit powers of the nodes</strong>.
+<span id="more"></span></p>
+<hr />
+<ul>
+<li>Authors:: <a href="R.%20Ramanathan">R. Ramanathan</a>, <a
+href="R.%20Rosales-Hain">R. Rosales-Hain</a></li>
+<li>作者机构::</li>
+<li>PublicationTitle:: undefined, IEEE INFOCOM 2000. Conference on
+Computer Communications. Nineteenth Annual Joint Conference of the IEEE
+Computer and Communications Societies</li>
+<li>Date:: 2000</li>
+<li>DateAdded:: <a href="2023-04-18">2023-04-18</a></li>
+<li>状态:: #待读</li>
+<li>源码:: #未开源</li>
+<li>PDF Attachments
+<ul>
+<li><a
+href="zotero://open-pdf/library/items/FPYSH982">document.pdf</a></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="abstract">1. Abstract</h2>
+<h4 id="abstract-1">Abstract</h4>
+<p>A <strong>multihop wireless network</strong> is one in which a packet
+may have to traverse multiple consecutive wireless links in order to
+reach its destination.</p>
+<p>The <strong>topology</strong> of a multihop wireless network is the
+set of communication links between node pairs used explicitly or
+implicitly by a routing mechanism. "uncontrollable" factors to topology
+- node mobility - weather - interference - noise "controllable" factors
+to topology: - transmit power(this paper) - antenna direction - active
+movement - actively choose who to communicate</p>
+<p><strong>Goal:</strong> Try to efficiently react to changes in the
+topology due to either 'uncontrollable' or 'controllable' factors.</p>
+<h4 id="brief-idea-of-this-paper">Brief idea of this paper</h4>
+<p>Considerable research has been done on <strong>routing -
+mechanisms</strong> that efficiently react to changes in the topology
+due to uncontrollable factors, the area of <strong>adjusting the
+controllable parameters in order to create the desired topology</strong>
+has received little attention.</p>
+<p>This paper addresses the problem of controlling the topology of the
+network by <strong>changing the transmit powers of the
+nodes</strong>.</p>
+<h4 id="why-do-we-need-to-control-the-topology">Why do we need to
+control the topology?</h4>
+<p>Wrong topology can: - considerably reduce the
+<strong>capacity</strong>, - limited spatial reuse reduces network
+capacity - increase the end-to-end <strong>packet delay</strong>, - high
+end-to-end delays - decrease the <strong>robustness</strong> to node
+failures. - network partitioning(more than 1 cluster) - extend battery
+life</p>
+<blockquote>
+<p>Networks that do not employ topology control are likely to be in one
+of these modes for a significant fraction of their operational time,
+resulting in degraded performance, or even disrupted connectivity.</p>
+</blockquote>
+<h4 id="related-work">Related work</h4>
+<p>The specific problem we consider has not been studied previously.
+There has been some work in the general area of topology control and
+network design. In [4], an algorithm based on Delaunay triangulation is
+given to choose logical links. The objectives and constraints used there
+are different from ours, and adaptive control of transmit powers is not
+addressed. The selection of optimal transmission range to maximize
+throughput is studied in [5], [6]. However, they do not describe any
+techniques for actually controlling the power, nor do they concern
+themselves with connectivity. Topology design in wired networks, both in
+terms of physical links and virtual links to satisfy a given traffic
+matrix has been fairly well studied [7], [8] and are of some relevance
+as a source of adaptable ideas <span class="math inline">\({
+}^1\)</span>. In summary, no research has considered the assignment of
+different transmit powers to different nodes to meet a global
+topological property, such as a connected network and studied an
+implementation in the context of a prototype multihop wireless
+network.</p>
+<h4 id="contribution-of-this-paper">Contribution of this paper</h4>
+<ul>
+<li>Formulate topology control as a constrained optimization problem of
+practical importance, in particular as minimizing transmit power subject
+to the network being connected or biconnected.</li>
+<li>Consider both static and mobile versions of the problem and give two
+sets of solutions, then present provably optimal algorithms for static
+networks and present distributed heuristics for mobile networks.</li>
+</ul>
+<h2 id="problem-statement">2. Problem Statement</h2>
+<h4 id="graph-definition">Graph definition</h4>
+<p><strong>Definition II.1:</strong> A multihop wireless network is
+represented as <span class="math inline">\(M=(N, L)\)</span>, where
+<span class="math inline">\(\mathrm{N}\)</span> is a set of nodes and
+<span class="math inline">\(\mathrm{L}\)</span> <span
+class="math inline">\(: \mathrm{N} \rightarrow\left(Z_0^{+},
+Z_0^{+}\right)\)</span>is a set of coordinates on the plane denoting the
+locations of the nodes.</p>
+<p><strong>Definition II.2:</strong> A parameter vector for a given node
+is represented as <span class="math inline">\(P=\left\{f_1, f_2, . .,
+f_n\right\}\)</span>, where <span class="math inline">\(f_i: \mathrm{N}
+\rightarrow \mathrm{R}\)</span>, is a real valued adjustable
+parameter.</p>
+<p>In this paper, we restrict our attention to transmit power. Thus,
+<span class="math inline">\(P=\{p\}\)</span>, and the transmit power of
+a node <span class="math inline">\(u\)</span> is given by <span
+class="math inline">\(p(u)\)</span>. Following convention, we work in
+units of <span class="math inline">\(\mathrm{dB}\)</span> for power
+levels and signal strengths.</p>
+<h4 id="node-features-constrains-propagation-model">Node features
+constrains (propagation model)</h4>
+<p><strong>Definition II.3:</strong> The propagation function is
+represented as <span class="math inline">\(\gamma: L \times L
+\rightarrow Z\)</span>, where <span
+class="math inline">\(\mathrm{L}\)</span> is a set of location
+coordinates on the plane. <span class="math inline">\(\gamma\left(l_i,
+l_j\right)\)</span> gives the loss in <span
+class="math inline">\(\mathrm{dB}\)</span> due to propagation at
+location <span class="math inline">\(l_j \in L\)</span>, when a packet
+is originated from location <span class="math inline">\(l_i \in
+L\)</span></p>
+<p>The successful reception of a transmitted signal depends, along with
+the propagation function <span class="math inline">\(\gamma\)</span>, on
+the transmit power <span class="math inline">\(p\)</span>, and the
+receiver sensitivity <span class="math inline">\(S\)</span>. S is the
+threshold signal strength needed for reception and is assumed to be an
+apriori known constant, same for all nodes. In particular, for
+successful reception, <span class="math display">\[
+p-\gamma\left(l_i, l_j\right) \geq S
+\]</span> Here assume that <span class="math inline">\(\gamma\)</span>
+is a monotonically increasing function of the geographical distance
+<span class="math inline">\(d\left(l_i, l_j\right)\)</span> between
+<span class="math inline">\(l_i\)</span> and <span
+class="math inline">\(l_j\)</span>. Combine <span
+class="math inline">\(S\)</span> and <span
+class="math inline">\(\gamma\)</span> into one function as follows.
+<span class="math display">\[
+\lambda(d)=\gamma\left(d\left(l_i, l_j\right)\right)+S
+\]</span> Clearly, <span class="math inline">\(p\)</span> must be at
+least <span class="math inline">\(\lambda(d)\)</span> for successful
+reception. This leads to the following defintion, of significant
+importance in this paper.</p>
+<p><strong>Definition II.4:</strong> The least-power function <span
+class="math inline">\(\lambda(d)\)</span> gives the minimum power needed
+to communicate a distance of <span class="math inline">\(d\)</span>.</p>
+<h4 id="graph-definition-1">Graph definition</h4>
+<p><strong>Definition II.5:</strong> Given a multihop wireless network
+<span class="math inline">\(\mathrm{M}=\)</span> <span
+class="math inline">\((\mathrm{N}, \mathrm{L})\)</span>, a transmit
+power function <span class="math inline">\(p\)</span>, and a least-power
+function <span class="math inline">\(\lambda\)</span>, the induced graph
+is represented as <span class="math inline">\(G=(V, E)\)</span>, where
+<span class="math inline">\(\mathrm{V}\)</span> is a set of vertices
+corresponding to nodes in <span
+class="math inline">\(\mathrm{N}\)</span>, and <span
+class="math inline">\(\mathrm{E}\)</span> is a set of undirected edges
+such that <span class="math inline">\((u, v) \in \mathrm{E}\)</span> if
+and only if <span class="math inline">\(p(u) \geq \lambda(d(u,
+v))\)</span>, and <span class="math inline">\(p(v) \geq \lambda(d(u,
+v))\)</span>.</p>
+<h4 id="problem-connected-minmax-power-c-m-p">Problem: Connected MinMax
+Power <span class="math inline">\((C M P)\)</span></h4>
+<p>Objective: Minimize the maximum transmit power. Constraints: Keep
+connectivity and biconnectivity. <strong>Definition II.6:</strong>
+Connected MinMax Power <span class="math inline">\((C M P)\)</span>.
+Given an <span class="math inline">\(\mathrm{M}=(\mathrm{N},
+\mathrm{L})\)</span>, and a least-power function <span
+class="math inline">\(\lambda\)</span>, find a per-node minimal
+assignment of transmit powers <span class="math inline">\(p: \mathrm{N}
+\rightarrow Z^{+}\)</span>, such that the induced graph of <span
+class="math inline">\((M, \lambda, p)\)</span> is connected, and <span
+class="math inline">\(\operatorname{MAX}_{u \in N}(p(u))\)</span> is a
+minimum.</p>
+<p>per-node-minimal for connectivity/biconnectivity if and only if it is
+not possible to lower the assigned power of any single node and still
+keep the representative graph connected/biconnected.</p>
+<p>Thus, an assignment in which every node transmits at the solution's
+maximum power is still inviolate of the MinMax property but may not be
+per-node-minimal.</p>
+<h4 id="problem-biconnectivity-augmentation">Problem: Biconnectivity
+Augmentation</h4>
+<p><strong>Definition II.7:</strong> Problem Biconnectivity Augmentation
+with MinMax Power (BAMP). Given a multihop wireless net <span
+class="math inline">\(M=(N, L)\)</span>, a least-power function <span
+class="math inline">\(\lambda\)</span>, and an initial assignment of
+transmit powers <span class="math inline">\(p: \mathrm{N} \rightarrow
+Z^{+}\)</span>, such that the induced graph of <span
+class="math inline">\((\mathrm{M}, \lambda, \mathrm{p})\)</span> is
+connected, find a pernode minimal set of power increases <span
+class="math inline">\(\delta(u)\)</span> such that the induced graph of
+<span class="math inline">\((\mathrm{M}, \lambda,
+p(u)+\delta(u))\)</span> is biconnected, and <span
+class="math inline">\(\operatorname{MAX}_{u \in
+N}(p(u)+\delta(u))\)</span> is a minimum.</p>
+<h2 id="static-networks-optimum-centralized-algorithms">3. Static
+Networks: Optimum Centralized Algorithms</h2>
+<h4 id="algorithm-connect">Algorithm CONNECT</h4>
+<ul>
+<li><p>"greedy" algorithm,</p></li>
+<li><p>works by iteratively merging connected components until there is
+just one.</p></li>
+<li><p>Initially, each node is its own component. Node pairs are
+selected in non-decreasing order of their mutual distance.</p></li>
+<li><p>If the nodes are in different components, then the transmit power
+of each is increased to be able to just reach the other.</p></li>
+<li><p>This is done until the network is connected. <img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-1.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-1" /></p></li>
+</ul>
+<h4 id="connect-is-min-max-but-not-pernode-minimal">CONNECT is min-max
+but not pernode-minimal</h4>
+<p>Theorem III.1 proves CONNECT is an optimum solution to the CMP
+problem. But it may not be pernode-minimal. This is because a power
+increase may addmore than one edge to the induced graph. Such additional
+edges, other than the one between the selected node pairs are called
+<strong>side-effect edges</strong>. An example of side-effect edge is
+illustrated in figure 1 (a). A side-effect edge may form a loop with
+other edges and may allow the lowering of some power levels and the
+elimination of some edges added previously. An example is shown in
+figure <span class="math inline">\(1(b)\)</span>.</p>
+<figure>
+<img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-2.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-2" />
+<figcaption aria-hidden="true">Topology control of multihop wireless
+networks using transmit power adjustment-Figure-2</figcaption>
+</figure>
+<h4 id="deal-with-side-effect-edges">Deal with side-effect edges</h4>
+<p>Procedure perNodeMinimalize is the simplest way to exploit
+side-effect edges and make the assignment per-node minimal. <strong>Main
+idea:</strong> Consider nodes one at a time and ramp down their powers
+to the maximum possible extent that does not disconnect the induced
+graph. <strong>Infinite possibilities:</strong> But there are
+theoretically infinite power levels between two power levels, and
+practically there may be a large number of power levels depending on the
+granularity of power adjustment that the radio provides.
+<strong>Solution:</strong> Uses a binary search over the only set of
+power levels that "matter", a set that does not depend on the
+granularity of the power level adjustment. This set is determined by the
+set of nodes that are within range of the considered node with the
+current power level. In theorem III.1, we show that this suffices for
+per-node minimality. <img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-3.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-3" /></p>
+<h4 id="algorithm-biconn-augment">Algorithm BICONN-AUGMENT</h4>
+<ul>
+<li>greedy.</li>
+<li>We first identify the biconnected components in the graph induced by
+the power assignment from algorithm CONNECT. This is done using a
+standard method based on depth-first search given in [12].</li>
+<li>Then, node pairs are selected in non-decreasing order of their
+mutual distance and joined only if they are in different biconnected
+components. This is continued until the network is biconnected.</li>
+<li><strong>pernode-minimal:</strong> May not be per-node minimal even
+in the absence of side-effect edges. But, the same "fix" works, whatever
+the cause. <img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-4.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-4" /></li>
+</ul>
+<h4 id="theorem-iii.1">Theorem III.1</h4>
+<p><strong>Theorem III.1:</strong> Algorithm CONNECT is an optimum
+solution to the CMP problem. <img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-1.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-1" />
+<strong>Correctness:</strong> - Lines 4,5 create an edge between two
+nodes if they are in different clusters. - Line 7 ensures that if we end
+then the graph is connected. - Line 3 ensures that if we end then all
+node pairs have been considered. - Thus, the algorithm is correct.</p>
+<h4 id="proof-of-min-max-optimal">Proof of min-max optimal:</h4>
+<p>We first show that the assignment minimizes the maximum power.
+Following that, we will show that the assignment is
+per-node-minimal.</p>
+<p>Suppose to the contrary that the maximum power used is not the
+optimum. Consider a node <span class="math inline">\(u\)</span> that is
+assigned the maximum power. By line 4 , this must have happened in order
+to connect to another node <span class="math inline">\(v\)</span> in a
+different cluster. Further, since we consider node pairs in
+non-decreasing order of separation (lines 1,3), there can be no path
+between <span class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> such that all nodes along that path are
+separated by less than <span class="math inline">\(d(u, v)\)</span>.
+That is, <span class="math display">\[\nexists \operatorname{path}(u,
+v): \forall(x, y) \in \operatorname{path}(u, v), d(x, y) \leq d(u,
+v)\]</span> This is because, had there been such a path, algorithm
+CONNECT would have found it prior to joining <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span>, thereby putting <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> in the same cluster and contradicting
+our assumption. To see this, consider any such path <span
+class="math inline">\(P\)</span> and consider a pair of consecutive
+nodes <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> in that path. Either <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> have been joined by algorithm CONNECT
+in line 5 or they have not. If they have, we are done. If not, it was
+surely ignored only because there is some other path <span
+class="math inline">\(P^{\prime}\)</span> already connecting them, in
+which case a substitution of <span
+class="math inline">\(P^{\prime}\)</span> in place of <span
+class="math inline">\((x, y)\)</span> in <span
+class="math inline">\(P\)</span> results in a path between <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span>. See figure 2 for illustration. <img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-5.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-5" />
+By line 5 and distance monotonicity of <span
+class="math inline">\(\lambda\)</span>, equation 3 can be rewritten as
+<span class="math display">\[
+\nexists \operatorname{path}(u, v): \forall x \in \operatorname{path}(u,
+v), p(x) \leq p(u)
+\]</span> Let <span class="math inline">\(p_{\text {opt }}(i)\)</span>
+denote the power of node <span class="math inline">\(i\)</span> under
+the optimum algorithm. Let OPT be the optimum solution value, that is,
+OPT is the maximum power in the network under the optimum algorithm.
+Since by supposition, OPT <span class="math inline">\(&lt;p(u)\)</span>,
+and by definition, <span class="math display">\[
+\forall_i\left(p_{o p t}(i) \leq O P T&lt;p(u)\right)
+\]</span> we have in particular <span class="math display">\[
+p_{o p t}(u)&lt;p(u)
+\]</span> But if this is the case, then, <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> cannot be connected directly in the
+optimum solution since <span class="math inline">\(p(u)\)</span> is the
+minimum power required to connect <span class="math inline">\(u\)</span>
+and <span class="math inline">\(v\)</span> (by definition of <span
+class="math inline">\(\lambda\)</span> and line 5). Thus, there must be
+a path that connects <span class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> and furthermore by Eq. 5, all such
+nodes must have powers less than <span
+class="math inline">\(p(u)\)</span>. Formally, <span
+class="math display">\[
+\exists \operatorname{path}(u, v): \forall(x) \in \operatorname{path}(u,
+v), p(x) \leq p(u)
+\]</span> This contradicts equation 4. Hence our supposition is false
+and algorithm CONNECT is optimum. #### Proof of pernode-minimal <img
+src="Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment-Figure-3.png"
+alt="Topology control of multihop wireless networks using transmit power adjustment-Figure-3" />
+- Consider lines 6,7 in procedure perNodeMinimalize. Let <span
+class="math inline">\(\mathrm{T}_i=\left(u, v_i\right)\)</span> be the
+element for which the graph is disconnected. Thus, <span
+class="math inline">\(p(u) =
+\lambda\left(\mathrm{d}\left(\mathrm{T}_{i-1}\right)\right) =
+\lambda\left(\mathrm{d}\left( u, v_{i-1} \right) \right)\)</span>. -
+Since <span class="math inline">\(\mathrm{T}\)</span> listed in
+non-increasing order of distance, <span class="math display">\[
+\nexists x: d\left(u, v_i\right)&lt;d(u, x)&lt;d\left(u, v_{i-1}\right)
+\]</span> - Now, suppose to the contrary that <span
+class="math inline">\(p\)</span> is not minimal for node <span
+class="math inline">\(u\)</span>. Clearly, there is another power
+setting, say <span
+class="math display">\[\lambda\left(\mathrm{d}\left(\mathrm{T}_i\right)\right)
+&lt; p^{\prime}(u)&lt;p(u)\]</span> - Since we know that the network is
+not connected with <span class="math inline">\(p(u)\)</span> at <span
+class="math inline">\(\lambda\left(\mathrm{d}\left(\mathrm{T}_i\right)\right)\)</span>,
+there must be another node, say <span class="math inline">\(x\)</span>,
+such that <span class="math inline">\(p^{\prime}(u)\)</span> reaches
+<span class="math inline">\(x\)</span>. - Since <span
+class="math inline">\(p(u)&gt;p^{\prime}(u)\)</span>, we have <span
+class="math display">\[
+d\left(u,
+v_{i-1}\right)=\lambda^{-1}(p(u))&gt;\lambda^{-1}\left(p^{\prime}(u)\right)=d(u,
+x)
+\]</span> - Since <span
+class="math inline">\(p^{\prime}(u)&gt;\lambda\left(d\left(T_i\right)\right)\)</span>,
+we have, taking <span class="math inline">\(\lambda^{-1}\)</span> of
+both sides, <span class="math display">\[
+d(u, x)&gt;d\left(u, v_i\right)
+\]</span> But equations 9 and 10 contradict equation 8. Thus our
+supposition must be false, and hence the assignment must be per node
+minimal.</p>
+<p><strong>Theorem III.2:</strong> Algorithm BICONN-AUGMENT produces an
+optimum solution to the BAMP problem.</p>
+<p><strong>Proof:</strong> The correctness of BICONN-AUGMENT follows
+from lines 3 and 4 which force nodes to be in the same biconnected
+component. The proofs for optimality and pernode-minimality are similar
+to that for theorem III.1, and will be significantly abbreviated for
+lack of space.</p>
+<p>Consider a node <span class="math inline">\(u\)</span> that is
+assigned the maximum power to form an edge with a node <span
+class="math inline">\(v\)</span>. Since we consider node pairs in
+non-decreasing order, following an argument analogous to that of theorem
+III.1, there cannot exist two disjoint paths between <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> such that all edges in these paths are
+at most <span class="math inline">\(d(u, v)\)</span>. On the other hand,
+if the optimum is less than <span class="math inline">\(p(u), u\)</span>
+must have two disjoint paths to <span class="math inline">\(v\)</span>
+in which each node pair separation is no more than <span
+class="math inline">\(d(u, v)\)</span>, forcing a contradiction.</p>
+<p><strong>Per node minimality:</strong> is identical modulo
+substitution of "connect" for "biconnect" in the corresponding proof for
+theorem III. 1</p>
+<h2 id="mobile-networks-distrubuted-heuristics">4. MOBILE NETWORKS:
+DISTRUBUTED HEURISTICS</h2>
+<ul>
+<li>In a mobile multihop wireless network, the topology is constantly
+changing.</li>
+<li>In this section, we present two distributed heuristics for topology
+control, namely Local Information No Topology (LINT) and Local
+Information Link-State Topology (LILT).</li>
+<li>The power minimization is done in an indirect manner by limiting the
+number of neighbors, and is at best a poor approximation to an optimal
+solution. #### LINT Description</li>
+<li>A node is configured with three parameters:
+<ul>
+<li>the "desired" node degree <span
+class="math inline">\(d_d\)</span>,</li>
+<li>a high threshold on the node degree <span
+class="math inline">\(d_h\)</span>,</li>
+<li>a low threshold <span class="math inline">\(d_l\)</span>.</li>
+</ul></li>
+<li>Periodically, the node checks the number of active neighbors
+(degree) in its neighbor table (built by the routing mechanism).
+<ul>
+<li>If the degree is greater than <span
+class="math inline">\(d_h\)</span>, the node reduces its operational
+power.</li>
+<li>If the degree is less than <span class="math inline">\(d_l\)</span>,
+the node increases its operational power.</li>
+<li>If neither is true, no action is taken.</li>
+</ul></li>
+</ul>
+<p>The magnitude of the power change is a function of desired degree
+<span class="math inline">\(d_d\)</span> and current degree <span
+class="math inline">\(d\)</span>. In particular, the further apart <span
+class="math inline">\(d\)</span> and <span
+class="math inline">\(d_d\)</span> are, the more is the magnitude of the
+change.</p>
+<p>The power changes are done in a shuffle periodic mode, that is, the
+time between power changes is randomized around a mean. This is done in
+order to eliminate lockstep execution and interference between
+packets.</p>
+<p>We now derive the formula used in LINT to reduce the power. It is
+based on the well-known generic model for propagation [10] by which the
+propagation loss function varies as some <span
+class="math inline">\(\mathcal{E}\)</span> power of distance. The value
+of <span class="math inline">\(\mathcal{E}\)</span> is usually between 2
+and 5 , depending on the environment. After simplifying, <span
+class="math display">\[
+p_d=p_c-5 \cdot \mathcal{E} \cdot \log \left(\frac{d_d}{d_c}\right)
+\]</span> A node knows the current used power <span
+class="math inline">\(p_c\)</span> and the current degree <span
+class="math inline">\(d_c\)</span>. As mentioned before, <span
+class="math inline">\(d_d\)</span> is a configured value. In our system,
+we use <span class="math inline">\(\mathcal{E}=4\)</span>, but <span
+class="math inline">\(\mathcal{E}\)</span> can also be configured
+depending upon the environment. Equation (15) can thus be used to
+calculate the new power periodically. We note that the formula applies
+for both power increase and decrease to bring the degree close to <span
+class="math inline">\(d_d\)</span>.</p>
+<h4 id="lilt-description">LILT Description</h4>
+<p>A significant shortcoming of LINT is its incognizance of network
+connectivity and the consequent danger of a network partition.(Since
+degree-remaining doesn't guarantee the connectivity)</p>
+<p>In multihop wireless routing protocols based on the linkstate
+approach (such as [13], [2], [14]), some amount of global connectivity
+information is available locally at every node. This is available at no
+additional overhead to the topology control mechanism. The idea in LILT
+is to exploit such information for recognizing and repairing network
+partitions.</p>
+<p>There are two main parts to LILT - the neighbor reduction protocol
+(NRP) and the neighbor addition protocol (NAP). The NRP is essentially
+the LINT mechanism that tries to maintain the node degree around a
+certain configured value. The NAP is triggered whenever an event driven
+or periodic link-state update arrives. Its purpose is to override the
+high threshold bounds and increase the power if the topology change
+indicated by the routing update results in undesirable connectivity. The
+main challenge here is to coordinate such power changes with other
+nodes, since we do not want all nodes to react to the topology change.
+Initially, all nodes start with the maximum possible power. This results
+in a maximally connected network, enables successful propagation of
+updates and the initalization of a network topology database at each
+node. After this initialization, the NRP and NAP are activated, as
+follows.</p>
+<p>A node receiving a routing update first determines which of three
+states the updated topology is in - disconnected, connected but not
+biconnected, or biconnected. If it is biconnected, no action is taken.
+If it is disconnected, the node increases its transmit power to the
+maximum possible value.</p>
+<p>If it is connected, but not biconnected, the node attempts to do
+biconnectivity augmentation, as follows. The node first finds its
+distance from the closest articulation point. An articulation point is a
+node whose removal will partition the network. Note that if the network
+is connected but not biconnected, it must have at least one articulation
+point. Articulation points are automatically found by the biconnectivity
+checking procedure. The node then sets a timer for a value <span
+class="math inline">\(t\)</span> that is randomized around an
+exponential function of the distance from the articulation point. If
+after time <span class="math inline">\(t\)</span> the network is still
+not biconnected, the node increases its power to the maximum
+possible.</p>
+<p>Thus, a limited form of global coordination is achieved with zero
+overhead. Nodes closer to an articulation point are more likely to
+remove the articulation and therefore given priority using timers. The
+coordination is not perfect in that it is possible that the network
+over-reacts by having two or more nodes increase their power. However,
+the NRP reduces the powers to an appropriate level in time, and in any
+case the error is on the conservative (connectivity) side. The NRP and
+NAP intervals are kept sufficiently large to damp any oscillations. None
+have been observed in our experiments.</p>
+<p>Note that nodes increase their power immediately to the maximum value
+rather than step by step. This reflects the need for expediency in
+fixing the connectivity. The goal of biconnectivity is to ensure that
+even in the transient period, the network will at least be
+connected.</p>
+<hr />
+<h2 id="zotero-links">Zotero links</h2>
+<ul>
+<li><a href="zotero://select/items/1_KBICGITY">Local library</a></li>
+<li><a target="_blank" rel="noopener" href="http://zotero.org/users/7842126/items/KBICGITY">Cloud
+library</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Topology control of multihop wireless networks using transmit power adjustment</p><p><a href="https://voyager-yupeng.github.io/hexo_blog/2023/05/17/Topology control of multihop wireless networks using transmit power adjustment/">https://voyager-yupeng.github.io/hexo_blog/2023/05/17/Topology control of multihop wireless networks using transmit power adjustment/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Peng Yu</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-05-17</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-05-17</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/hexo_blog/tags/Paper-notes/">Paper notes</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Render multi-line latex</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/hexo_blog/2023/05/15/HexoImageNameIssues/"><span class="level-item">Hexo Image Name Issues</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/hexo_blog/img/avatar_bxw.png" alt="Peng Yuuu"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Peng Yuuu</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/hexo_blog/archives"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/hexo_blog/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/hexo_blog/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/voyager-yupeng" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/voyager-yupeng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:voyager.yupeng@gmail.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#abstract"><span class="level-left"><span class="level-item">1</span><span class="level-item">1. Abstract</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#contribution-of-this-paper"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">Contribution of this paper</span></span></a></li></ul></li><li><a class="level is-mobile" href="#problem-statement"><span class="level-left"><span class="level-item">2</span><span class="level-item">2. Problem Statement</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#problem-biconnectivity-augmentation"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">Problem: Biconnectivity
+Augmentation</span></span></a></li></ul></li><li><a class="level is-mobile" href="#static-networks-optimum-centralized-algorithms"><span class="level-left"><span class="level-item">3</span><span class="level-item">3. Static
+Networks: Optimum Centralized Algorithms</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#proof-of-min-max-optimal"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">Proof of min-max optimal:</span></span></a></li></ul></li><li><a class="level is-mobile" href="#mobile-networks-distrubuted-heuristics"><span class="level-left"><span class="level-item">4</span><span class="level-item">4. MOBILE NETWORKS:
+DISTRUBUTED HEURISTICS</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#lilt-description"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">LILT Description</span></span></a></li></ul></li><li><a class="level is-mobile" href="#zotero-links"><span class="level-left"><span class="level-item">5</span><span class="level-item">Zotero links</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/hexo_blog/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/hexo_blog/2023/05/17/DeepLearningAndrewNg/"><img src="/hexo_blog/cover/DeepLearningAndrewNg-thumbnail.png" alt="DeepLearningAndrewNg"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/DeepLearningAndrewNg/">DeepLearningAndrewNg</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Courses/">Courses</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/"><img src="/hexo_blog/cover/latex-thumbnail.png" alt="Render multi-line latex"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/">Render multi-line latex</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/Topology%20control%20of%20multihop%20wireless%20networks%20using%20transmit%20power%20adjustment/">Topology control of multihop wireless networks using transmit power adjustment</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Paper-notes/">Paper notes</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-14T16:00:00.000Z">2023-05-15</time></p><p class="title"><a href="/hexo_blog/2023/05/15/HexoImageNameIssues/">Hexo Image Name Issues</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-07T17:11:46.000Z">2022-03-08</time></p><p class="title"><a href="/hexo_blog/2022/03/08/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">Start your own Hexo blog</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/"><span class="level-start"><span class="level-item">Learn</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Courses/"><span class="level-start"><span class="level-item">Courses</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Paper-notes/"><span class="level-start"><span class="level-item">Paper notes</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Skills/"><span class="level-start"><span class="level-item">Skills</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Skills/Software/"><span class="level-start"><span class="level-item">Software</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/LaTeX/"><span class="tag">LaTeX</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/Paper-notes/"><span class="tag">Paper notes</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/hexo_blog/"><img src="/hexo_blog/img/logo-voyager.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2023 Peng Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/hexo_blog/js/column.js"></script><script src="/hexo_blog/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/hexo_blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/hexo_blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/hexo_blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/hexo_blog/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
