@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Machine Learning with Graphs - Hexo</title><link rel="manifest" href="/hexo_blog/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="This course focuses on the computational, algorithmic, and modeling challenges specific to the analysis of massive graphs. By means of studying the underlying graph structure and its features, stude"><meta property="og:type" content="blog"><meta property="og:title" content="Machine Learning with Graphs"><meta property="og:url" content="https://voyager_yupeng.gitee.io/hexo_blog/2021/05/15/GNN/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="This course focuses on the computational, algorithmic, and modeling challenges specific to the analysis of massive graphs. By means of studying the underlying graph structure and its features, stude"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://voyager_yupeng.gitee.io/hexo_blog/cover/GNN.png"><meta property="article:published_time" content="2021-05-15T06:44:38.000Z"><meta property="article:modified_time" content="2023-05-17T05:44:35.924Z"><meta property="article:author" content="Peng Yu"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://voyager_yupeng.gitee.io/hexo_blog/cover/GNN.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://voyager_yupeng.gitee.io/hexo_blog/2021/05/15/GNN/"},"headline":"Machine Learning with Graphs","image":["https://voyager_yupeng.gitee.io/hexo_blog/cover/GNN.png"],"datePublished":"2021-05-15T06:44:38.000Z","dateModified":"2023-05-17T05:44:35.924Z","author":{"@type":"Person","name":"Peng Yu"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://voyager_yupeng.gitee.io/img/logo-voyager.svg"}},"description":"This course focuses on the computational, algorithmic, and modeling\r challenges specific to the analysis of massive graphs. By means of\r studying the underlying graph structure and its features, stude"}</script><link rel="canonical" href="https://voyager_yupeng.gitee.io/hexo_blog/2021/05/15/GNN/"><link rel="icon" href="/hexo_blog/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/hexo_blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/hexo_blog/"><img src="/hexo_blog/img/logo-voyager.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/hexo_blog/">Home</a><a class="navbar-item" href="/hexo_blog/archives">Archives</a><a class="navbar-item" href="/hexo_blog/categories">Categories</a><a class="navbar-item" href="/hexo_blog/tags">Tags</a><a class="navbar-item" href="/hexo_blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/hexo_blog/cover/GNN.png" alt="Machine Learning with Graphs"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-05-15T06:44:38.000Z" title="2021/5/15 14:44:38">2021-05-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-05-17T05:44:35.924Z" title="2023/5/17 13:44:35">2023-05-17</time></span><span class="level-item"><a class="link-muted" href="/hexo_blog/categories/Learn/">Learn</a><span> / </span><a class="link-muted" href="/hexo_blog/categories/Learn/Courses/">Courses</a></span></div></div><h1 class="title is-3 is-size-4-mobile">Machine Learning with Graphs</h1><div class="content"><p>This course focuses on the computational, algorithmic, and modeling
+challenges specific to the analysis of massive graphs. By means of
+studying the underlying graph structure and its features, students are
+introduced to machine learning techniques and data mining tools apt to
+reveal insights on a variety of networks.</p>
+<span id="more"></span>
+<h1 id="intro">1. Intro</h1>
+<h2 id="application">1.2 Application</h2>
+<p><img src="GNN-Figure-1.png" alt="Figure-1" /> 不同尺度： -
+整图尺度：整个图的预测和生成 - 子图尺度 - 节点尺度 - 边尺度 <img
+src="GNN-Figure-2.png" alt="Figure-2" /> 点预测：预测某一个点的特征
+边预测：预测两点之间是否有连边（知识图谱） 图分类：分子属性预测
+子图检测：检测是否有点构成子图，社区发现 其他类型：
+图生成：比如生成具有特定属性的新分子结构 图演化：来模拟物理现象</p>
+<h3 id="example-of-node-level-ml-tasks">Example of Node-level ML
+Tasks</h3>
+<p><img src="GNN-Figure-3.png" alt="Figure-3" />
+问题：给定一个氨基酸序列，是否可以预测其可能构成的蛋白质空间结构？ <img
+src="GNN-Figure-4.png" alt="Figure-4" />
+重点进步是，AlphaFold提出了spatial graph，并把氨基酸表示成了spatial
+graph。 node：氨基酸 edge：表示氨基酸之间的空间距离关系</p>
+<h3 id="examples-of-edge-level-ml-tasks">Examples of Edge-level ML
+Tasks</h3>
+<p>We are basically doing <strong>link prediction</strong> or trying to
+<strong>understand the relationship</strong> between different
+nodes.</p>
+<p><strong>Recommender Systems</strong> <img src="GNN-Figure-5.png"
+alt="Figure-5" /> <img src="GNN-Figure-6.png" alt="Figure-6" /> Using a
+bipartite graph creates a much more powerful embedding than just using
+images. Nodes: User and items Edges: User-item interactions Goal:
+predict future edges</p>
+<p><strong>Drug Side Effects Prediction</strong> <img
+src="GNN-Figure-7.png" alt="Figure-7" /> Task: Given a pair of drugs,
+predict adverse side effects. <img src="GNN-Figure-8.png"
+alt="Figure-8" /> To deal with this, create a two-level heterogeneous
+network using known protein-protein interactions and drug-protein
+interactions to predict unknown drug-drug side effects. &gt;Inspiration
+for the Global Rigidity Recovery (GRR) Problem: &gt;We can also model
+the GRR Problem as an edge prediction task: predict a set of edges that,
+if we move some drones to establish them, the graph would be global
+rigidity; meanwhile, this process consumes the least power. ### Examples
+of Graph-level ML Tasks <strong>Drug Discovery</strong> <img
+src="GNN-Figure-9.png" alt="Figure-9" /> Model this problem as a graph
+classification problem. <img src="GNN-Figure-10.png" alt="Figure-10" />
+Alternatively, we can also model it as a graph generation problem. <img
+src="GNN-Figure-11.png" alt="Figure-11" /> Note that we can also
+optimize the existing graph to have desirable properties.
+&gt;Inspiration for the Global Rigidity Recovery Problem: &gt; Optimize
+the existing "Broken Graph" to have Global Rigidity properties.</p>
+<p><strong>Simulation Learning Framework</strong> <img
+src="GNN-Figure-12.png" alt="Figure-12" /> Ieteratily generation next
+frame position and update the current position. &gt;Inspiration for the
+Global Rigidity Recovery Problem): &gt;This work uses a time sequence
+model to predict the effect of gravity. Similarly, we can assume a
+virtual force keeps the graph converging to global rigidity and uses
+some analogous model to predict the effect of this force.</p>
+<h2 id="choice-of-graph-representation">1.3 Choice of Graph
+Representation</h2>
+<p>Undirected graph: use undirected links to represent symmetrical or
+reciprocal relations. Directed graph: use directed links to represent
+arcs relation. <img src="GNN-Figure-13.png" alt="Figure-13" /></p>
+<h3 id="bipartite-graph-二分图">Bipartite Graph 二分图</h3>
+<figure>
+<img src="GNN-Figure-14.png" alt="Figure-14" />
+<figcaption aria-hidden="true">Figure-14</figcaption>
+</figure>
+<h3 id="foldedprojected-bipartite-graph">Folded/Projected Bipartite
+Graph</h3>
+<p>Use one of the side nodes in a bipartite graph, and project it by
+some rules, such as they have at least one common neighbor. Helpful when
+it has two types of nodes: author and papers, movie and customers. <img
+src="GNN-Figure-15.png" alt="Figure-15" /></p>
+<h3 id="weighted-graphs">weighted graphs</h3>
+<p><img src="GNN-Figure-16.png" alt="Figure-16" /> ### more types of
+graphs <img src="GNN-Figure-17.png" alt="Figure-17" /></p>
+<h3 id="connectivity">Connectivity</h3>
+<p>Different meanings of connectivity in undirected graph and directed
+graph. <img src="GNN-Figure-18.png" alt="Figure-18" /></p>
+<figure>
+<img src="GNN-Figure-19.png" alt="Figure-19" />
+<figcaption aria-hidden="true">Figure-19</figcaption>
+</figure>
+<h1 id="feature-design">2. Feature Design</h1>
+<h2 id="node-features">2.1 Node features</h2>
+<p>There are some traditional node features. <img
+src="GNN-Figure-20.png" alt="Figure-20" /> ### Node degree Node degree
+is a fundamental but essential feature of graph nodes. However, the
+drawback of using it to characterize the structure and position of a
+node is that it treats all the neighbors equally; for example,
+<strong>nodes with the same degree are distinguishable</strong> even
+though they may be in different parts of the network. <img
+src="GNN-Figure-21.png" alt="Figure-21" /></p>
+<h3 id="node-centrality">Node Centrality</h3>
+<p>Node degree counts the neighboring nodes without capturing their
+importance. So we introduce the <em>Node centrality</em> to overcome
+this drawback. <em>Node centrality</em> takes the node importance in a
+graph into account. Different types of <em>Node centrality</em>: -
+Engienvector centrality - Betweenness centrality - Closeness centrality
+- and many others... <img src="GNN-Figure-22.png" alt="Figure-22" />
+#### Eigenvector centrality <img src="GNN-Figure-23.png"
+alt="Figure-23" /></p>
+<h4 id="betweenness-centrality">Betweenness centrality</h4>
+<p>The idea is that if a node is an important connector, then it has
+high importance. <img src="GNN-Figure-24.png" alt="Figure-24" /></p>
+<h4 id="closeness-centrality">Closeness centrality</h4>
+<p>The idea is that the <strong>more centered a node is</strong>, the
+shorter the path to everyone else is and the <strong>more important it
+is</strong>. <img src="GNN-Figure-25.png" alt="Figure-25" /></p>
+<h4 id="clustering-coefficient">Clustering Coefficient</h4>
+<p>This measures <strong>the density of neighbors of a node</strong>.
+The numerator is how many edges exist in neighbors. The denominator is
+how many edges it could maximally have.</p>
+<p><img src="GNN-Figure-26.png" alt="Figure-26" /> Observation from the
+Clustering coefficient: The clustering coefficient actually counts the
+triangles in the ego network. <img src="GNN-Figure-27.png"
+alt="Figure-27" /></p>
+<h4 id="graphlets-异构连通子图">Graphlets 异构连通子图</h4>
+<p>Different node color means different structure features. <img
+src="GNN-Figure-28.png" alt="Figure-28" /> #### Graphlet Degree
+Vector(GDV) Now define Graphlet Degree Vector(GDV) <img
+src="GNN-Figure-29.png" alt="Figure-29" /> Take an example of how to
+calculate Graphlets. a-d represents different types of Graphlets, and
+different node colors represent different positions. GDV simply counts
+all the cases when node v respectively in each position of every
+possible Graphlets. <img src="GNN-Figure-30.png" alt="Figure-30" /> So
+if we consider neighbors of 4 hops, we got a GDV of 73 elements. <img
+src="GNN-Figure-31.png" alt="Figure-31" /> <strong>Conclusion:</strong>
+- GDV captures <strong>fine-grained topological properties of the local
+neighborhood around a node</strong>. - Useful for predicting the role of
+a particular node in the network. E.g., predicting protein function.
+<img src="GNN-Figure-32.png" alt="Figure-32" /> &gt;Inspiration for the
+Global Rigidity Recovery Problem): &gt;- Embedding GDV features in node
+to represent local topology structure features.</p>
+<h3 id="summary-of-2.1-node-features">Summary of 2.1 Node features</h3>
+<p><img src="GNN-Figure-33.png" alt="Figure-33" /> Summary of
+Importance-based Features <img src="GNN-Figure-34.png"
+alt="Figure-34" /> Summary of Structure-based features: Captures the
+topological properties of the local neighborhood around the node. Useful
+for predicting the role of a particular node in the network. E.g.,
+predicting protein function. <img src="GNN-Figure-35.png"
+alt="Figure-35" /> ## 2.2 Edge features Edge features = Features for a
+pair of nodes <img src="GNN-Figure-36.png" alt="Figure-36" /> Two
+pipelines of Link prediction task: - Links are missing at random: used
+mainly in a static network like protein prediction. - Links over time:
+used mainly in a dynamic network. <img src="GNN-Figure-37.png"
+alt="Figure-37" /> ### Methodology of link prediction Computing score
+between each pair of nodes. <img src="GNN-Figure-38.png"
+alt="Figure-38" /></p>
+<h3 id="three-types-edge-features">Three types edge features</h3>
+<p><img src="GNN-Figure-39.png" alt="Figure-39" /> #### 3.1
+Distance-based features <img src="GNN-Figure-40.png" alt="Figure-40" />
+#### 3.2 Local Neighborhood Overlap</p>
+<p><img src="GNN-Figure-41.png" alt="Figure-41" /> ......</p>
+<h1 id="how">How</h1>
+<p><img src="GNN-Figure-42.png" alt="Figure-42" /> GNN的两种技术路线
+^8a2f39 1. 用邻居更新——Spatial 2. 转化到新的域——Spectral</p>
+<h1 id="图谱卷积">图谱卷积</h1>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>https://blog.csdn.net/sinat_41667427/article/details/106160643?spm=1001.2014.3001.5502
+这篇讲拉普拉斯矩阵那块讲的特别清楚</li>
+<li>然后这篇 https://blog.csdn.net/yilulvxing/article/details/110308247
+的最后那一部分，把卷积运算迁移到了图上，讲的很清楚 <img
+src="GNN-Figure-43.jpg" alt="Figure-1" /></li>
+<li></li>
+</ol>
+<h1 id="conv">Conv</h1>
+<figure>
+<img src="GNN-Figure-44.png" alt="Figure-43" />
+<figcaption aria-hidden="true">Figure-43</figcaption>
+</figure>
+<h1 id="spatial-based-aggregate">Spatial-Based: Aggregate</h1>
+<figure>
+<img src="GNN-Figure-45.png" alt="Figure-44" />
+<figcaption aria-hidden="true">Figure-44</figcaption>
+</figure>
+<p>在图里如何类比Conv提取信息⬆️。其中紫色线指的Neural
+Networks必须是order invariant（顺序不变）的，which means交换Neural
+Networks的输入节点的顺序，不影响结果。</p>
+<p>问题：那A不就相当于汇聚了多次？（不重复，因为每次都是利用前一时刻的A）</p>
+<p><img src="GNN-Figure-46.png"
+alt="Figure-45" />"image-20210316132241742" style="zoom:50%;" /&gt;</p>
+<p>每个节点都相当于定义了一个图。</p>
+<figure>
+<img src="GNN-Figure-47.png" alt="Figure-46" />
+<figcaption aria-hidden="true">Figure-46</figcaption>
+</figure>
+<h3 id="whats-in-the-box">what’s in the box</h3>
+<figure>
+<img src="GNN-Figure-48.png" alt="Figure-47" />
+<figcaption aria-hidden="true">Figure-47</figcaption>
+</figure>
+<h3 id="how-to-train">How to train</h3>
+<p><img src="GNN-Figure-49.png"
+alt="Figure-48" />"image-20210316150709662" style="zoom:50%;" /&gt;</p>
+<p>在生成的子图上面进行训练。</p>
+<figure>
+<img src="GNN-Figure-50.png" alt="Figure-49" />
+<figcaption aria-hidden="true">Figure-49</figcaption>
+</figure>
+<p>然后可以在没见过的子图上进行前向predict（得益于权值共享）。前向predict在如图的子图上就是从下到上的方向。</p>
+<figure>
+<img src="GNN-Figure-51.png" alt="Figure-50" />
+<figcaption aria-hidden="true">Figure-50</figcaption>
+</figure>
+<p>权值共享。权值的数量和网络的大小无关，而只和你的深度有关 。</p>
+<p><img src="GNN-Figure-52.png"
+alt="Figure-51" />"image-20210316151022526" style="zoom:50%;" /&gt;</p>
+<h3 id="区分两种深度">区分两种“深度”</h3>
+<p>在box内部放着的神经网络，有他自己的“深度”，这个深度你肯定想多深就多深。</p>
+<p>但是整个子图的“深度”，这个是不能太深的（比如社交网络，仅仅几层深度就能访问到很大的一片图了）。这个
+深度表示的是“你要向多少邻居借信息”。</p>
+<figure>
+<img src="GNN-Figure-53.png" alt="image-20210316151613944" />
+<figcaption aria-hidden="true">image-20210316151613944</figcaption>
+</figure>
+<h2 id="gat">GAT</h2>
+<figure>
+<img src="GNN-Figure-54.png" alt="Figure-53" />
+<figcaption aria-hidden="true">Figure-53</figcaption>
+</figure>
+<h3 id="gnn综述">GNN综述</h3>
+<h3 id="拓扑特征提取">拓扑特征提取</h3>
+<h1 id="pytorch-geometry">Pytorch geometry</h1>
+<h2 id="custom-dataset">Custom Dataset</h2>
+<h2 id="base-concepts">Base concepts</h2>
+<p>A single graph in PyG is described by an instance of
+<code>torch_geometric.data.Data</code>, which holds the follwing
+attributes by default: (None of those are required.) -
+<code>data.x</code>: Node feature matrix with shape
+<code>[num_nodes, num_node_features]</code> -
+<code>data.edge_index</code>: Graph connectivity in <a
+href="COO%20format.md">COO format</a> with shape
+<code>[2, num_edges]</code>. - <code>data.edge_attr</code>: Edge
+features matrix with shape <code>[num_edges, num_edge_features]</code>.
+- <code>data.y</code>: Target to train against (may have arbitrary
+shape), targets of node-level tasks of shape <code>[num_nodes, *]</code>
+or targets of graph-level tasks of shape <code>[1, *]</code>. -
+<code>data.pos</code>: Node position matrix with shape
+<code>[num_nodes, num_dimensions]</code>. <img src="GNN-Figure-55.png"
+alt="Figure-54" /></p>
+<h3 id="mini-batching">Mini-batching</h3>
+<p><img src="GNN-Figure-56.png" alt="Figure-55" /> Concepts of different
+kind of Batch stuffs.</p>
+<p>The method of mini-batch is crucial for the project which needs to
+train on amount of data. Instead of tranning examples one-by-one, a
+mini-batch groups a set of examples into a unified representation where
+it can effciently be processed in parallel.</p>
+<p>In CV and NLP, this generally be done by rescalling or padding each
+example into same size, and then group them in an additional dimension.
+The length of this additional dimension is equal to the numbers of
+examples grouped in this mini-batch, and is typically referred to as the
+<code>batch_sized</code>.</p>
+<p>Since graphs are generally contains different numbers of nodes and
+edges, so above approaches to do mini-batching are either not feasible
+or may result in a lot of unnecessary memory consumption. In Pytorch
+Geometry, the mini-batch was done by folloing ways: - Adjacency matrices
+are stacked in a diagonal fashion (creating a giant graph that holds
+multiple isolated subgraphs) - Node features are concatenated in the
+node dimension. - Target features are concatenated in the node
+dimension. <span class="math display">\[
+\mathbf{A}=\left[\begin{array}{ccc}
+\mathbf{A}_1 &amp; &amp; \\
+&amp; \ddots &amp; \\
+&amp; &amp; \mathbf{A}_n
+\end{array}\right], \quad \mathbf{X}=\left[\begin{array}{c}
+\mathbf{X}_1 \\
+\vdots \\
+\mathbf{X}_n
+\end{array}\right], \quad \mathbf{Y}=\left[\begin{array}{c}
+\mathbf{Y}_1 \\
+\vdots \\
+\mathbf{Y}_n
+\end{array}\right]
+\]</span> &gt; here A is adjency matrices, X is node features, Y is
+target features.</p>
+<figure>
+<img src="GNN-Figure-57.png" alt="Figure-56" />
+<figcaption aria-hidden="true">Figure-56</figcaption>
+</figure>
+<figure>
+<img src="GNN-Figure-58.png" alt="Figure-57" />
+<figcaption aria-hidden="true">Figure-57</figcaption>
+</figure>
+<h3 id="train-with-mini-batch">train with mini-batch</h3>
+<h3 id="transforms">transforms</h3>
+<h2 id="colab-notebooks">Colab notebooks</h2>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Machine Learning with Graphs</p><p><a href="https://voyager_yupeng.gitee.io/hexo_blog/2021/05/15/GNN/">https://voyager_yupeng.gitee.io/hexo_blog/2021/05/15/GNN/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Peng Yu</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-05-15</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-05-17</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/hexo_blog/2022/02/01/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E9%80%89%E8%B4%AD/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">移动硬盘购买</span></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/hexo_blog/img/avatar_bxw.png" alt="Peng Yuuu"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Peng Yuuu</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/hexo_blog/archives"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/hexo_blog/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/hexo_blog/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/voyager-yupeng" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/voyager-yupeng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:voyager.yupeng@gmail.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#intro"><span class="level-left"><span class="level-item">1</span><span class="level-item">1. Intro</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#application"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">1.2 Application</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#example-of-node-level-ml-tasks"><span class="level-left"><span class="level-item">1.1.1</span><span class="level-item">Example of Node-level ML
+Tasks</span></span></a></li><li><a class="level is-mobile" href="#examples-of-edge-level-ml-tasks"><span class="level-left"><span class="level-item">1.1.2</span><span class="level-item">Examples of Edge-level ML
+Tasks</span></span></a></li></ul></li><li><a class="level is-mobile" href="#choice-of-graph-representation"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">1.3 Choice of Graph
+Representation</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#bipartite-graph-二分图"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">Bipartite Graph 二分图</span></span></a></li><li><a class="level is-mobile" href="#foldedprojected-bipartite-graph"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">Folded/Projected Bipartite
+Graph</span></span></a></li><li><a class="level is-mobile" href="#weighted-graphs"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">weighted graphs</span></span></a></li><li><a class="level is-mobile" href="#connectivity"><span class="level-left"><span class="level-item">1.2.4</span><span class="level-item">Connectivity</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#feature-design"><span class="level-left"><span class="level-item">2</span><span class="level-item">2. Feature Design</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#node-features"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">2.1 Node features</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#node-centrality"><span class="level-left"><span class="level-item">2.1.1</span><span class="level-item">Node Centrality</span></span></a></li><li><a class="level is-mobile" href="#summary-of-2.1-node-features"><span class="level-left"><span class="level-item">2.1.2</span><span class="level-item">Summary of 2.1 Node features</span></span></a></li><li><a class="level is-mobile" href="#three-types-edge-features"><span class="level-left"><span class="level-item">2.1.3</span><span class="level-item">Three types edge features</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#how"><span class="level-left"><span class="level-item">3</span><span class="level-item">How</span></span></a></li><li><a class="level is-mobile" href="#图谱卷积"><span class="level-left"><span class="level-item">4</span><span class="level-item">图谱卷积</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#参考文献"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">参考文献</span></span></a></li></ul></li><li><a class="level is-mobile" href="#conv"><span class="level-left"><span class="level-item">5</span><span class="level-item">Conv</span></span></a></li><li><a class="level is-mobile" href="#spatial-based-aggregate"><span class="level-left"><span class="level-item">6</span><span class="level-item">Spatial-Based: Aggregate</span></span></a><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#whats-in-the-box"><span class="level-left"><span class="level-item">6.1.1</span><span class="level-item">what’s in the box</span></span></a></li><li><a class="level is-mobile" href="#how-to-train"><span class="level-left"><span class="level-item">6.1.2</span><span class="level-item">How to train</span></span></a></li><li><a class="level is-mobile" href="#区分两种深度"><span class="level-left"><span class="level-item">6.1.3</span><span class="level-item">区分两种“深度”</span></span></a></li></ul><li><a class="level is-mobile" href="#gat"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">GAT</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#gnn综述"><span class="level-left"><span class="level-item">6.2.1</span><span class="level-item">GNN综述</span></span></a></li><li><a class="level is-mobile" href="#拓扑特征提取"><span class="level-left"><span class="level-item">6.2.2</span><span class="level-item">拓扑特征提取</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#pytorch-geometry"><span class="level-left"><span class="level-item">7</span><span class="level-item">Pytorch geometry</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#custom-dataset"><span class="level-left"><span class="level-item">7.1</span><span class="level-item">Custom Dataset</span></span></a></li><li><a class="level is-mobile" href="#base-concepts"><span class="level-left"><span class="level-item">7.2</span><span class="level-item">Base concepts</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#mini-batching"><span class="level-left"><span class="level-item">7.2.1</span><span class="level-item">Mini-batching</span></span></a></li><li><a class="level is-mobile" href="#train-with-mini-batch"><span class="level-left"><span class="level-item">7.2.2</span><span class="level-item">train with mini-batch</span></span></a></li><li><a class="level is-mobile" href="#transforms"><span class="level-left"><span class="level-item">7.2.3</span><span class="level-item">transforms</span></span></a></li></ul></li><li><a class="level is-mobile" href="#colab-notebooks"><span class="level-left"><span class="level-item">7.3</span><span class="level-item">Colab notebooks</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/hexo_blog/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/hexo_blog/2023/05/17/DeepLearningAndrewNg/"><img src="/hexo_blog/cover%5CDeepLearningAndrewNg-thumbnail.png" alt="DeepLearningAndrewNg"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/DeepLearningAndrewNg/">DeepLearningAndrewNg</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Courses/">Courses</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/"><img src="/hexo_blog/cover%5Clatex-thumbnail.png" alt="Render multi-line latex"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/">Render multi-line latex</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-14T16:00:00.000Z">2023-05-15</time></p><p class="title"><a href="/hexo_blog/2023/05/15/HexoImageNameIssues/">Hexo Image Name Issues</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-07T17:11:46.000Z">2022-03-08</time></p><p class="title"><a href="/hexo_blog/2022/03/08/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">Start your own Hexo blog</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-31T17:11:46.000Z">2022-02-01</time></p><p class="title"><a href="/hexo_blog/2022/02/01/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E9%80%89%E8%B4%AD/">移动硬盘购买</a></p></div></article></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/"><span class="level-start"><span class="level-item">Learn</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Courses/"><span class="level-start"><span class="level-item">Courses</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Skills/"><span class="level-start"><span class="level-item">Skills</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Skills/Software/"><span class="level-start"><span class="level-item">Software</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/LaTeX/"><span class="tag">LaTeX</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/hexo_blog/"><img src="/hexo_blog/img/logo-voyager.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2023 Peng Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/hexo_blog/js/column.js"></script><script src="/hexo_blog/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/hexo_blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/hexo_blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/hexo_blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/hexo_blog/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

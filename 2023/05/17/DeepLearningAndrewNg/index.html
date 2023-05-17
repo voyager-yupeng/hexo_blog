@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>DeepLearningAndrewNg - Hexo</title><link rel="manifest" href="/hexo_blog/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="The Deep Learning Specialization is a foundational program that will help you understand the capabilities, challenges, and consequences of deep learning and prepare you to participate in the develop"><meta property="og:type" content="blog"><meta property="og:title" content="DeepLearningAndrewNg"><meta property="og:url" content="https://voyager_yupeng.gitee.io/hexo_blog/2023/05/17/DeepLearningAndrewNg/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="The Deep Learning Specialization is a foundational program that will help you understand the capabilities, challenges, and consequences of deep learning and prepare you to participate in the develop"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://voyager_yupeng.gitee.io/hexo_blog/cover%5CDeepLearningAndrewNg.png"><meta property="article:published_time" content="2023-05-16T16:00:00.000Z"><meta property="article:modified_time" content="2023-05-17T06:43:43.614Z"><meta property="article:author" content="Peng Yu"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://voyager_yupeng.gitee.io/hexo_blog/cover%5CDeepLearningAndrewNg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://voyager_yupeng.gitee.io/hexo_blog/2023/05/17/DeepLearningAndrewNg/"},"headline":"DeepLearningAndrewNg","image":["https://voyager_yupeng.gitee.io/hexo_blog/cover%5CDeepLearningAndrewNg.png"],"datePublished":"2023-05-16T16:00:00.000Z","dateModified":"2023-05-17T06:43:43.614Z","author":{"@type":"Person","name":"Peng Yu"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://voyager_yupeng.gitee.io/img/logo-voyager.svg"}},"description":"The Deep Learning Specialization is a foundational program that will\r help you understand the capabilities, challenges, and consequences of\r deep learning and prepare you to participate in the develop"}</script><link rel="canonical" href="https://voyager_yupeng.gitee.io/hexo_blog/2023/05/17/DeepLearningAndrewNg/"><link rel="icon" href="/hexo_blog/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/hexo_blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/hexo_blog/"><img src="/hexo_blog/img/logo-voyager.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/hexo_blog/">Home</a><a class="navbar-item" href="/hexo_blog/archives">Archives</a><a class="navbar-item" href="/hexo_blog/categories">Categories</a><a class="navbar-item" href="/hexo_blog/tags">Tags</a><a class="navbar-item" href="/hexo_blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/hexo_blog/cover%5CDeepLearningAndrewNg.png" alt="DeepLearningAndrewNg"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-05-16T16:00:00.000Z" title="2023/5/17 00:00:00">2023-05-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-05-17T06:43:43.614Z" title="2023/5/17 14:43:43">2023-05-17</time></span><span class="level-item"><a class="link-muted" href="/hexo_blog/categories/Learn/">Learn</a><span> / </span><a class="link-muted" href="/hexo_blog/categories/Learn/Courses/">Courses</a></span></div></div><h1 class="title is-3 is-size-4-mobile">DeepLearningAndrewNg</h1><div class="content"><p>The Deep Learning Specialization is a foundational program that will
+help you understand the capabilities, challenges, and consequences of
+deep learning and prepare you to participate in the development of
+leading-edge AI technology.</p>
+<span id="more"></span>
+<h2 id="正则化">1.4 正则化</h2>
+<h2 id="卷积步长">1.5 卷积步长</h2>
+<p>输出的图片的size</p>
+<p>[[DeepLearningAndrewNg-Figure-1.png|00]]
+[[DeepLearningAndrewNg-Figure-2.png]] 如果<img
+src="DeepLearningAndrewNg-Figure-3.png"
+alt="image-20200213163149143" />不是整数 ，向下取整</p>
+<ul>
+<li>[[DeepLearningAndrewNg-Figure-4.png]]</li>
+<li>蓝色框在外面的时候就不计算卷积了</li>
+</ul>
+<h2 id="三纬卷积">1.6 三纬卷积</h2>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-5.png"
+alt="image-20200222162127021" />
+<figcaption aria-hidden="true">image-20200222162127021</figcaption>
+</figure>
+<p>按照惯例，这两个nc要相等。</p>
+<h2 id="单层卷积网络">1.7 单层卷积网络</h2>
+<p>从a[0]-&gt;a[1]</p>
+<p>[[DeepLearningAndrewNg-Figure-6.png]]</p>
+<h4 id="神经网络拟合">神经网络拟合</h4>
+<h4 id="参数数量计算">参数数量计算</h4>
+<p>[[DeepLearningAndrewNg-Figure-7.png]]</p>
+<ul>
+<li>需要注意，这里每个卷积核会带来28个参数（27个卷积核内的参数，1个bias）</li>
+<li>不管图片输入多大，参数始终都是280个。（你已经知道如何提取10个特征，<strong>可以应用到更大的图片中，而参数数量却不变</strong>）</li>
+</ul>
+<h4 id="各种标记的总结">各种标记的总结</h4>
+<p>[[DeepLearningAndrewNg-Figure-8.png]]</p>
+<p>[[DeepLearningAndrewNg-Figure-9.png]]</p>
+<ul>
+<li>上标用来表示第几层</li>
+</ul>
+<h4 id="question">question</h4>
+<p>[[DeepLearningAndrewNg-Figure-10.png]]</p>
+<p>这里bias的维数为什么是这样</p>
+<h2 id="简单卷积网络示例">1.8 简单卷积网络示例</h2>
+<p>[[DeepLearningAndrewNg-Figure-11.png]]</p>
+<ul>
+<li>其中最后一层是平滑输出为一个向量，logistics或者是softmax，取决于是想识别一个物体还是不同类别的物体。</li>
+<li>特征图的高度和宽度在减小，通道数在增加</li>
+<li>关于这些所有参数如何确定，后面会讲</li>
+</ul>
+<h4 id="三种种类的层">三种种类的层</h4>
+<p>[[DeepLearningAndrewNg-Figure-12.png]]</p>
+<ul>
+<li>虽然只使用Conv层也可能构建出很好的神经网络，但是大部分神经网络架构师依然会添加pool和FC</li>
+</ul>
+<h2 id="pool">1.9 pool</h2>
+<h4 id="pool作用">pool作用</h4>
+<ul>
+<li>缩减模型的大小</li>
+<li>提高计算速度</li>
+<li>提高所提取特征的鲁棒性</li>
+</ul>
+<h4 id="pooling举例为什么要pooling">pooling举例&amp;为什么要pooling</h4>
+<h4 id="maxpooling的直观理解">maxpooling的直观理解</h4>
+<p>​ 发现这个特征，那就将他最大化；要是没发现，那就认为没有</p>
+<h4 id="average-pooling有时候会用">Average pooling有时候会用</h4>
+<h4 id="question-1">question</h4>
+<ul>
+<li>测试一下maxpolling是不是把图像模糊了</li>
+<li>[[DeepLearningAndrewNg-Figure-13.png]]
+选出最大的数，这个在源码里是怎么执行的？在硬件上有没有加速的可能？</li>
+</ul>
+<h2 id="卷积神经网络举例数字识别">1.10 卷积神经网络举例（数字识别）</h2>
+<h2 id="为什么使用卷积">1.11 为什么使用卷积</h2>
+<h4 id="全连接让参数太多了">全连接让参数太多了</h4>
+<p>[[DeepLearningAndrewNg-Figure-14.png]]</p>
+<h4 id="权值共享">权值共享</h4>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-15.png"
+alt="image-20200220174602468" />
+<figcaption aria-hidden="true">image-20200220174602468</figcaption>
+</figure>
+<p>为什么卷积让参数变少了，因为权值共享。</p>
+<p>假设一个卷积核可以检测竖直边缘，那么它就适用于任何地方。</p>
+<h4 id="稀疏连接">稀疏连接</h4>
+<p><img src="DeepLearningAndrewNg-Figure-16.png" /></p>
+<p>左边红色的框，决定了右边红色圈里的数字30-&gt;左边红色的框只与右边圈里的30连接</p>
+<h4 id="全连接和权值共享让参数变少">⬆️全连接和权值共享让参数变少</h4>
+<h4 id="总结为什么使用卷积">总结，为什么使用卷积</h4>
+<ul>
+<li>通过权值共享、稀疏连接，让参数变少（比全连接少）</li>
+<li>当图片里的物体发生小的移动的时候，也可以让结果在一定范围内不变</li>
+</ul>
+<h2 id="mini-batch">2.1 Mini-Batch</h2>
+<h2 id="经典网络">2.2 经典网络</h2>
+<h3 id="lenet-5">LeNet-5</h3>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-17.png"
+alt="image-20200220190413959" />
+<figcaption aria-hidden="true">image-20200220190413959</figcaption>
+</figure>
+<h3 id="针对阅读这篇经典论文的同学">针对阅读这篇经典论文的同学</h3>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-18.png"
+alt="image-20200222155745573" />
+<figcaption aria-hidden="true">image-20200222155745573</figcaption>
+</figure>
+<ul>
+<li>过去人们经常用Sigmoid函数和Tanh函数，但现在人们你经常用Relu函数</li>
+<li>通过某种复杂的计算方法，让信道数都保持一致，为了减少运算量。但现在计算都比较快速了，所以不需要这样了。</li>
+<li>经典的LeNet-5网络在池化后进行了非线性函数处理，Sigmoid。至于为什么，之后会讲。</li>
+<li>建议精读第二段，略读第三段
+<ul>
+<li>第三段介绍了graph transformer network，但如今没有广泛使用。</li>
+</ul></li>
+</ul>
+<h3 id="alexnet">AlexNet</h3>
+<ul>
+<li>原文是224*224，但实际上227*227会更好</li>
+</ul>
+<p>表现更好的原因：</p>
+<ul>
+<li>LeNet-5参数只有60thousand，ALexNet有60million个参数</li>
+<li>使用了ReLu激活函数</li>
+</ul>
+<h4 id="针对阅读这篇经典论文的同学-1">针对阅读这篇经典论文的同学</h4>
+<ul>
+<li>当时GPU计算较慢，所以使用了复杂的方法去在两个GPU上并行</li>
+<li>LRN（local response normalization）层，使用的并不广泛。大致思路是：
+<img src="DeepLearningAndrewNg-Figure-19.png"
+alt="image-20200222161442699" />选取一个位置，穿过整个信道，将所有值归一化。理由是也许并不需要这么多的激活神经元，但后来研究者们发现不怎么起作用。</li>
+</ul>
+<h3 id="vgg-16">VGG-16</h3>
+<p>这个16是指 <img src="DeepLearningAndrewNg-Figure-20.png"
+alt="image-20200222162410456" /></p>
+<ul>
+<li>这是个1.38亿（138million）参数的巨型网络</li>
+<li>但是吸引人的是，结构并不复杂，结构很规整。都是几个卷积跟着几个池化（可以压缩图像大小）。</li>
+<li>缺点是需要训练的特征数量非常大。</li>
+<li>但是卷积核的数量变化是有规律的，翻倍（绿色笔记圈出来了⬇️）。
+[[DeepLearningAndrewNg-Figure-21.png]]
+<ul>
+<li>作者当时可能认为512已经够大了，所以并没有进行继续翻倍</li>
+<li>这种让卷积核翻倍的操作是这种网络结构的思想。</li>
+</ul></li>
+<li><img src="DeepLearningAndrewNg-Figure-22.png"
+alt="image-20200222162950908" />这篇文章介绍了VGG-19，但是和16的效果差不多。</li>
+<li>文中揭示了，随着网络的增加，信道数的翻倍和图片的缩小之间是有规律的，这一点比较吸引人。</li>
+</ul>
+<h2 id="残差网络">2.3 残差网络</h2>
+<p>因为梯度消失和梯度爆炸的原因，所以训练很深的网络是很难的。但是这节课要学的skip
+connection（或者说是short
+cut），可以从某一网络层直接获得激活值，跳过很多层网络，这样可以构建像ResNet一样的深层网络。</p>
+<h3 id="residual-block-残差块">Residual block 残差块</h3>
+<h4 id="信息流的主路线">信息流的主路线</h4>
+<p>[[DeepLearningAndrewNg-Figure-23.png]]</p>
+<p>⬆️将信息直接送到了l+2层，且在非线性ReLu激活函数之前</p>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-24.png"
+alt="image-20200222164215334" />
+<figcaption aria-hidden="true">image-20200222164215334</figcaption>
+</figure>
+<p>⬆️plain
+network，通过每两层之间加上连接，构成一个一个的残差块，从而形成残差网络。</p>
+<p>[[DeepLearningAndrewNg-Figure-25.png]]</p>
+<p>⬆️残差块让“越深越精确”成为了现实。</p>
+<h2 id="残差网络为什么有效">2.4 残差网络为什么有效</h2>
+<p>没太听懂。。。</p>
+<h4 id="问题">问题</h4>
+<ol type="1">
+<li>什么是hold-out交叉验证</li>
+</ol>
+<h2 id="x1的卷积有什么用">2.5 1x1的卷积有什么用</h2>
+<p>提出文章<img src="DeepLearningAndrewNg-Figure-26.png"
+alt="image-20200222184430313" /></p>
+<ul>
+<li>虽然其中关于网络架构的部分没有得到广泛的应用，但是这种network in
+network的理念却很有影响力，很多其他网络都受他影响，包括下节课要讲的inception网络</li>
+</ul>
+<p>在一维上的1x1卷积确实没什么用，但是如果是多个channel的话，就会有用。</p>
+<p>[[DeepLearningAndrewNg-Figure-27.png]]</p>
+<h4 id="x1卷积实际上在做的是">1x1卷积实际上在做的是</h4>
+<ul>
+<li>遍历一个位置的32个信道（一个位置的切片），和卷积核相乘，得到一个实数，然后ReLu。</li>
+<li>可以这样理解⬇️</li>
+<li>相当于是一种全连接，一个切片中的32个元素，和，输出层中一个切片中的number
+of filters个元素</li>
+</ul>
+<p>[[DeepLearningAndrewNg-Figure-28.jpg]]</p>
+<h4 id="x1卷积的一个例子">1x1卷积的一个例子</h4>
+<ul>
+<li>通道太多，通过使用多个1x1卷积核来让通道数减少。
+[[DeepLearningAndrewNg-Figure-29.png]]</li>
+</ul>
+<h4 id="问题-1">问题</h4>
+<ol type="1">
+<li>使用1x1卷积核压缩通道数，这样真的可以吗？这并没有怎么保留原来的信息，而是直接一股脑加起来了。
+<ol type="1">
+<li>能不能选择更有用的信息留下来</li>
+<li>剪枝是剪掉了卷积核，还是剪掉了某一层的输出？</li>
+</ol></li>
+</ol>
+<h2 id="谷歌inception网络简介">2.6 谷歌inception网络简介</h2>
+<p>inceptino网络可以替你决定用什么规格的卷积核、加不加pooling层</p>
+<p>提出文章；<img src="DeepLearningAndrewNg-Figure-30.png"
+alt="image-20200222185536812" /></p>
+<h4 id="核心思路">核心思路</h4>
+<p>[[DeepLearningAndrewNg-Figure-31.png]]</p>
+<p>把不同规格的卷积核、pooling，输出的东西都堆叠在一起，然后让网络自己去学习到底要不要进行这些操作。</p>
+<h4 id="计算代价直接计算">计算代价——直接计算</h4>
+<h4
+id="计算代价先使用11conv对网络进行压缩">计算代价——先使用1*1conv对网络进行压缩</h4>
+<p>[[DeepLearningAndrewNg-Figure-32.png]]</p>
+<p>先压缩网络，然后再扩大。乘法运算次数降到了120million。</p>
+<p>因为加法次数和乘法次数基本相同，所以这里只计算了乘法次数。</p>
+<h4 id="总结">总结</h4>
+<p>如果你不想自己决定选用什么规格的卷积核，那就用inception。</p>
+<p>涉及到计算成本的时候，可以用1x1卷积来制造瓶颈层（先压缩网络，然后再扩大），来降低计算成本。但是这种压缩会不会让神经网络的性能下降呢？事实证明，合理的使用的话，可以让效果兼得。</p>
+<h2 id="向量化">2.11 向量化</h2>
+<p>用矩阵乘法代替二维循环</p>
+<p>[[DeepLearningAndrewNg-Figure-33.png]]</p>
+<p>[[DeepLearningAndrewNg-Figure-34.png]]</p>
+<h2 id="向量化logistic回归">2.13 向量化Logistic回归</h2>
+<p><strong>多样本输入（纵向叠加x）、单Logistic（w一维）</strong></p>
+<p>这里的x(1)是表示一个样本，而向量化后就是把每个样本的特征向量（列向量）vertically叠起来，while
+参数wT还是一行，此时输出的a也会vertically叠起来。这样
+就相当于一次矩阵运算完成了多个样本的forward，可以一次在很多数据集上进行梯度下降。</p>
+<p>[[DeepLearningAndrewNg-Figure-35.png]]</p>
+<h2 id="attention">attention</h2>
+<p>注意力：在输出翻译句子的第一个词的时候，要看source句的哪些部分（不是第一个单词，但也肯定不是句尾，不能看得太远了），要分别对source句中的每个部分有多少注意力。</p>
+<h2 id="神经网络表示和输出单样本输入多logistic">3.2
+神经网络表示和输出（单样本输入、多Logistic）</h2>
+<p>hiden layer：因为在训练的过程中，这些节点的值并不知道。</p>
+<p>一般在说几层神经网络的时候不算输入层（0层），但是算最后的classfier层（即使是1个节点）。</p>
+<p>这里的x1，x2，x3共同组成了一个x的特征向量输入（x1，x2，x3分别代表一个数）。</p>
+<p>w是(4,3)，4代表这层有几个神经元节点，3代表前一层的输入是几维的。</p>
+<p>[[DeepLearningAndrewNg-Figure-36.png]]</p>
+<p><strong>单样本输入（x一列）、多Logistic（w多维）</strong></p>
+<p>[[DeepLearningAndrewNg-Figure-37.png]]</p>
+<p>这里把行向量wT纵向堆叠，而输入就是一个样本的列向量，所以乘出来的z也是纵向排列。然后对Z用一下sigmod，就生成了纵向排列的a[1]。</p>
+<p>[[DeepLearningAndrewNg-Figure-38.png]]</p>
+<p>维数整理</p>
+<p>[[DeepLearningAndrewNg-Figure-39.png]]</p>
+<h2 id="多个样本的向量化多样本输入多logistic">3.4
+多个样本的向量化（多样本输入、多Logistic）</h2>
+<p>普通训练方法：一个一个计算y_predict，如果要计算所有m个样本的predict，那么需要做一个for
+i=1 to m的循环。现用向量化来一次计算所有样本的predict。</p>
+<p>[[DeepLearningAndrewNg-Figure-40.png]]</p>
+<p><strong>多样本输入、多Logistic</strong></p>
+<p>多样本：把列向量横着排起来。多Logistic（神经网络）：把wT行向量竖着排起来。</p>
+<p>关注紫色部分：</p>
+<ul>
+<li>横向扫，会扫过不同的训练样本（training examples）。</li>
+<li>纵向扫，会扫过隐藏层不同节点的值a（hiden units）。</li>
+</ul>
+<p>[[DeepLearningAndrewNg-Figure-41.png]]</p>
+<p>多样本向量化输入的详细解释⬇️。</p>
+<p>[[DeepLearningAndrewNg-Figure-42.png]]</p>
+<h2 id="激活函数">3.6 激活函数</h2>
+<p>最普通的是sigmod，但tanh函数（实际上是向下平移后的sigmod）大部分时候表现更好。</p>
+<p>在二分类的最后一个单节点层的时候，可以用sigmod输出0-1的值。</p>
+<p>但sigmod和tanh都在两端有梯度消失的问题，所以Relu（修正线性单元）用的更多。Relu在负数时导数为负，尽管实践中没什么问题，但也有一种改进版本的Relu
+called Leaky Relu（带泄露的Relu），但用的不如Relu多。</p>
+<p>Relu和Leaky Relu会让学习速度更快，因为在大部分Z空间，导数比较大。</p>
+<p>[[DeepLearningAndrewNg-Figure-43.png]]</p>
+<p>四种常用的激活函数</p>
+<p>[[DeepLearningAndrewNg-Figure-44.png]]</p>
+<h2 id="为什么要用非线性的激活函数">3.7 为什么要用非线性的激活函数</h2>
+<p>如果采用线性的激活函数，那么最后输出的东西就是输入的线性组合，那么神经网络hiden
+layer层数再多也不会增加black box的复杂度，还不如都去掉。</p>
+<p>[[DeepLearningAndrewNg-Figure-45.png]]</p>
+<p>Relu为什么不是线性的，怎么理解？</p>
+<p>[[DeepLearningAndrewNg-Figure-46.png]]</p>
+<p>[[DeepLearningAndrewNg-Figure-47.png]]</p>
+<h2 id="序列模型数学符号">5.2 序列模型数学符号</h2>
+<p>[[DeepLearningAndrewNg-Figure-48.png]]</p>
+<p><strong>one-hot词向量表示法</strong></p>
+<p>[[DeepLearningAndrewNg-Figure-49.png]]</p>
+<h2 id="循环神经网络">5.3 循环神经网络</h2>
+<h3 id="为什么不用standard-network"><strong>为什么不用standard
+network</strong></h3>
+<p>input和output可能会有不同的长度。</p>
+<p>不能共享在text不同位置学习到的feature。</p>
+<p>[[DeepLearningAndrewNg-Figure-50.png]]</p>
+<p>这样RNN有一个缺点：这样的结构只能利用到当前time
+step之前的信息，没法利用到之后的信息。比如下面的例子中，只看到Teddy和它之前的单词，是无法准确判断语义的。之后会提到BRNN（双向循环神经网络）</p>
+<p>[[DeepLearningAndrewNg-Figure-51.png]]</p>
+<h3 id="rnn-forward过程的数学运算"><strong>RNN
+forward过程的数学运算</strong></h3>
+<p>Wax表示后面要乘一个x类型的变量，并且计算得出的是一个a类型的变量。</p>
+<p>g1和g2可以是不同的激活函数。在这里由于是name
+entity问题，是一个二分类问题，所以g2可以用sigmoid函数。</p>
+<p>[[DeepLearningAndrewNg-Figure-52.png]]</p>
+<h3 id="简化rnn的数学表示">简化RNN的数学表示</h3>
+<p>Waa和Wax横向堆叠，a&lt;t-1&gt;和x&lt;t&gt;纵向堆叠，然后就可以简化成下图右上角的表示方式。</p>
+<p>[[DeepLearningAndrewNg-Figure-53.png]]</p>
+<h2 id="通过时间的反向传播">5.4 通过时间的反向传播</h2>
+<p>单个time step上的loss function、整个序列的loss
+function（把所有单步loss加起来）。</p>
+<p>在这里，反向传播同理，在计算图上所有forward计算时的箭头都反过来计算一次。
+其中最重要的传递就是沿着time step进行的反向传播。所以也叫backpropagation
+through time。</p>
+<p>[[DeepLearningAndrewNg-Figure-54.png]]</p>
+<h2 id="其他rnn">5.5 其他RNN</h2>
+<p>Tx ！= Ty 的情况，可以通过修改上述RNN，达到这种效果。</p>
+<p>[[DeepLearningAndrewNg-Figure-55.png]]</p>
+<p><strong>多对一结构</strong>。</p>
+<p>一般用在文本情绪分类。</p>
+<p>[[DeepLearningAndrewNg-Figure-56.png]]</p>
+<p><strong>一对多结构</strong>。红色的结构：平时在做的时候其实也会把每一步生成的结果feed进下一层。</p>
+<p>一般用在文本/音乐生成。</p>
+<p>[[DeepLearningAndrewNg-Figure-57.png]]</p>
+<p><strong>变长多对多结构</strong></p>
+<p>为了应对输入和输出长度不同的情况，先用encoder处理输入，再用decoder处理输出。</p>
+<p>[[DeepLearningAndrewNg-Figure-58.png]]</p>
+<h3 id="总结-1"><strong>总结</strong></h3>
+<p>one to one：就是普通的网络</p>
+<p>one to many：sequence generation，例如文本/音乐生成</p>
+<p>many to one：文本情感分类</p>
+<p>many to many：name entity</p>
+<p>many to many(变长)：文本翻译</p>
+<p>[[DeepLearningAndrewNg-Figure-59.png]]</p>
+<h2 id="语言模型和序列生成">5.6 语言模型和序列生成</h2>
+<p>如果你想要你的模型能够识别句子末尾的话，那么可以在每个句子后面加一个EOS（也用one-hot表示法表示，即
+EOS也在词典里），然后去训练。标点符号同理。</p>
+<p>[[DeepLearningAndrewNg-Figure-60.png]]</p>
+<p>第一步a&lt;1&gt;的时候，a&lt;0&gt;和x&lt;1&gt;的输入都是零向量，所以输出y&lt;1&gt;相当于是在预测是任何一个词的概率是多少。</p>
+<p>y&lt;1&gt;相当于是在预测在没有条件的情况下，是一个单词的概率是多少。</p>
+<p>y&lt;2&gt;是在预测在前文是Cats的条件下，下一个单词是average的概率是多少。</p>
+<p>[[DeepLearningAndrewNg-Figure-61.png]]</p>
+<p>loss function</p>
+<p>[[DeepLearningAndrewNg-Figure-62.png]]</p>
+<h1 id="meta-learning">Meta-learning</h1>
+<p>和life-long learning的区别，life-long
+Learing是不断训练同一个模型，使其掌握多种Task，Meta是指从不同Task中学会学习的方法。</p>
+<p>然后<strong>support set</strong>和<strong>query set</strong>是meta
+learning里的专有名词，就是指每个子任务里的training set和testing set</p>
+<p>[[DeepLearningAndrewNg-Figure-63.png]]</p>
+<p>第一步：define a set of learning algorithm</p>
+<p>灰色box里的东西就是一个learning algorithm。</p>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-64.png"
+alt="image-20210322190746956" />
+<figcaption aria-hidden="true">image-20210322190746956</figcaption>
+</figure>
+<p>如何评价一个learning algorithm的好坏，也定义一个loss func。</p>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-65.png"
+alt="image-20210322191302435" />
+<figcaption aria-hidden="true">image-20210322191302435</figcaption>
+</figure>
+<p>每个meta
+Learing的数据集example就是一个Task。为什么要和few-shot一起来讲，因为每个example是一个Task，which需要进行训练才知道Loss是多少，如果不是few-shot的话，那跑一次就需要的时间太长了。</p>
+<p>问题，训练用的Task说是不同任务，但实际上都是分类任务，这也算不同任务吗？</p>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-66.png"
+alt="image-20210322191734335" />
+<figcaption aria-hidden="true">image-20210322191734335</figcaption>
+</figure>
+<p>总结一下：</p>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-67.png"
+alt="image-20210322192350535" />
+<figcaption aria-hidden="true">image-20210322192350535</figcaption>
+</figure>
+<h2 id="maml">MAML</h2>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-68.png"
+alt="image-20210322193651850" />
+<figcaption aria-hidden="true">image-20210322193651850</figcaption>
+</figure>
+<h3 id="model-pre-training和meta-learning的区别">model
+pre-training和meta-learning的区别</h3>
+<p>MAML是关注train之后的参数。</p>
+<figure>
+<img src="DeepLearningAndrewNg-Figure-69.png"
+alt="image-20210322193504020" />
+<figcaption aria-hidden="true">image-20210322193504020</figcaption>
+</figure>
+<p><img src="DeepLearningAndrewNg-Figure-70.png"
+alt="image-20210322193524678" /> ### 参考链接 1.
+MAML和Reptile方法的解释，参考了李宏毅老师的网课，
+https://zhuanlan.zhihu.com/p/136975128 2.</p>
+<h1 id="机器人运动学">机器人运动学</h1>
+<p>b站课程：<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v4411H7ez?p=2">台大机器人学之运动学——林沛群</a></p>
+<h2 id="移动">移动</h2>
+<p><strong>静态刚体状态描述</strong></p>
+<p>body frame是在刚体中心构建的坐标系。</p>
+<p>[[C:_vault\0-Learn\2-Course-20210402134114841.png]]"image-20210402134114841"
+style="zoom:50%;" /&gt;</p>
+<p><strong>动态刚体状态描述</strong></p>
+<p>中心坐标的所有点构成了轨迹，其他各种微分构成了速度等信息。</p>
+<p>[[DeepLearningAndrewNg-Figure-71.png]]"image-20210402134914321"
+style="zoom:50%;" /&gt;</p>
+<p>具体来说就是如下，以刚体中心在世界坐标系里的坐标（向量）来描述位置。</p>
+<p>[[DeepLearningAndrewNg-Figure-72.png]]"image-20210402135224988"
+style="zoom:50%;" /&gt;</p>
+<h2 id="转动旋转矩阵">转动、旋转矩阵</h2>
+<p>左上角代表基准，比如这里的ABR就是说刚体B上的body
+frame的各轴方向，在{A}里表示是什么矩阵。</p>
+<p>这里写出来的就叫<strong>旋转矩阵</strong>。含义是：B相对于A的状态，里面3个collum分别表示{B}的3个轴在{A}中的方向。</p>
+<p>[[DeepLearningAndrewNg-Figure-73.png]]"image-20210402141315803"
+style="zoom:33%;" /&gt;</p>
+<p>[[DeepLearningAndrewNg-Figure-74.png]]"image-20210402141429766"
+style="zoom:30%;" /&gt;</p>
+<p>总结来说就是下面这张图。direct cosine方向余弦。</p>
+<p>[[DeepLearningAndrewNg-Figure-75.png]]"image-20210402141837894"
+style="zoom:50%;" /&gt;</p>
+<p>例题：求{B}相对于{A}的姿态（旋转矩阵）。</p>
+<p>把B每个轴在A下的表示写成列向量，然后横向stack起来。</p>
+<p>[[DeepLearningAndrewNg-Figure-76.png]]"image-20210402143829169"
+style="zoom:50%;" /&gt;</p>
+<h3 id="性质1"><strong>性质1：</strong></h3>
+<p><strong>A到B的旋转矩阵，和B到A的旋转矩阵，是互为转置的关系。</strong></p>
+<p>[[DeepLearningAndrewNg-Figure-77.png]]"image-20210402144608794"
+style="zoom:50%;" /&gt;</p>
+<h3 id="性质-2">性质 2：</h3>
+<p>因为坐标系一般都是正交的，所以会有一个很好的性质，逆矩阵==转置矩阵。这可以大大方便旋转矩阵相关的计算。</p>
+<p>[[DeepLearningAndrewNg-Figure-78.png]]"image-20210402145623684"
+style="zoom:30%;" /&gt;</p>
+<p>[[DeepLearningAndrewNg-Figure-79.png]]"image-20210402145347509"
+style="zoom:30%;" /&gt;</p>
+<h3 id="旋转矩阵的限定条件">旋转矩阵的限定条件</h3>
+<p><strong>对于3DOFs的理解：</strong>旋转矩阵有3x3共9个参数，但是因为有6个限定条件（3个collum都是单位向量、互相垂直），所以实际只有3个是自由变量，从而导致只有3个自由度。这里从数学上的理解，跟物理上的理解（三个旋转方向）一致。</p>
+<p>但是加了如上的约束条件后，怎么保证自由变量就是每个collum一个呢？</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>DeepLearningAndrewNg</p><p><a href="https://voyager_yupeng.gitee.io/hexo_blog/2023/05/17/DeepLearningAndrewNg/">https://voyager_yupeng.gitee.io/hexo_blog/2023/05/17/DeepLearningAndrewNg/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Peng Yu</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-05-17</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-05-17</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/"><span class="level-item">Render multi-line latex</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/hexo_blog/img/avatar_bxw.png" alt="Peng Yuuu"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Peng Yuuu</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/hexo_blog/archives"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/hexo_blog/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/hexo_blog/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/voyager-yupeng" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/voyager-yupeng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:voyager.yupeng@gmail.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#正则化"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">1.4 正则化</span></span></a></li><li><a class="level is-mobile" href="#卷积步长"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">1.5 卷积步长</span></span></a></li><li><a class="level is-mobile" href="#三纬卷积"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">1.6 三纬卷积</span></span></a></li><li><a class="level is-mobile" href="#单层卷积网络"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">1.7 单层卷积网络</span></span></a></li><li><a class="level is-mobile" href="#简单卷积网络示例"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">1.8 简单卷积网络示例</span></span></a></li><li><a class="level is-mobile" href="#pool"><span class="level-left"><span class="level-item">1.6</span><span class="level-item">1.9 pool</span></span></a></li><li><a class="level is-mobile" href="#卷积神经网络举例数字识别"><span class="level-left"><span class="level-item">1.7</span><span class="level-item">1.10 卷积神经网络举例（数字识别）</span></span></a></li><li><a class="level is-mobile" href="#为什么使用卷积"><span class="level-left"><span class="level-item">1.8</span><span class="level-item">1.11 为什么使用卷积</span></span></a></li><li><a class="level is-mobile" href="#mini-batch"><span class="level-left"><span class="level-item">1.9</span><span class="level-item">2.1 Mini-Batch</span></span></a></li><li><a class="level is-mobile" href="#经典网络"><span class="level-left"><span class="level-item">1.10</span><span class="level-item">2.2 经典网络</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#lenet-5"><span class="level-left"><span class="level-item">1.10.1</span><span class="level-item">LeNet-5</span></span></a></li><li><a class="level is-mobile" href="#针对阅读这篇经典论文的同学"><span class="level-left"><span class="level-item">1.10.2</span><span class="level-item">针对阅读这篇经典论文的同学</span></span></a></li><li><a class="level is-mobile" href="#alexnet"><span class="level-left"><span class="level-item">1.10.3</span><span class="level-item">AlexNet</span></span></a></li><li><a class="level is-mobile" href="#vgg-16"><span class="level-left"><span class="level-item">1.10.4</span><span class="level-item">VGG-16</span></span></a></li></ul></li><li><a class="level is-mobile" href="#残差网络"><span class="level-left"><span class="level-item">1.11</span><span class="level-item">2.3 残差网络</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#residual-block-残差块"><span class="level-left"><span class="level-item">1.11.1</span><span class="level-item">Residual block 残差块</span></span></a></li></ul></li><li><a class="level is-mobile" href="#残差网络为什么有效"><span class="level-left"><span class="level-item">1.12</span><span class="level-item">2.4 残差网络为什么有效</span></span></a></li><li><a class="level is-mobile" href="#x1的卷积有什么用"><span class="level-left"><span class="level-item">1.13</span><span class="level-item">2.5 1x1的卷积有什么用</span></span></a></li><li><a class="level is-mobile" href="#谷歌inception网络简介"><span class="level-left"><span class="level-item">1.14</span><span class="level-item">2.6 谷歌inception网络简介</span></span></a></li><li><a class="level is-mobile" href="#向量化"><span class="level-left"><span class="level-item">1.15</span><span class="level-item">2.11 向量化</span></span></a></li><li><a class="level is-mobile" href="#向量化logistic回归"><span class="level-left"><span class="level-item">1.16</span><span class="level-item">2.13 向量化Logistic回归</span></span></a></li><li><a class="level is-mobile" href="#attention"><span class="level-left"><span class="level-item">1.17</span><span class="level-item">attention</span></span></a></li><li><a class="level is-mobile" href="#神经网络表示和输出单样本输入多logistic"><span class="level-left"><span class="level-item">1.18</span><span class="level-item">3.2
+神经网络表示和输出（单样本输入、多Logistic）</span></span></a></li><li><a class="level is-mobile" href="#多个样本的向量化多样本输入多logistic"><span class="level-left"><span class="level-item">1.19</span><span class="level-item">3.4
+多个样本的向量化（多样本输入、多Logistic）</span></span></a></li><li><a class="level is-mobile" href="#激活函数"><span class="level-left"><span class="level-item">1.20</span><span class="level-item">3.6 激活函数</span></span></a></li><li><a class="level is-mobile" href="#为什么要用非线性的激活函数"><span class="level-left"><span class="level-item">1.21</span><span class="level-item">3.7 为什么要用非线性的激活函数</span></span></a></li><li><a class="level is-mobile" href="#序列模型数学符号"><span class="level-left"><span class="level-item">1.22</span><span class="level-item">5.2 序列模型数学符号</span></span></a></li><li><a class="level is-mobile" href="#循环神经网络"><span class="level-left"><span class="level-item">1.23</span><span class="level-item">5.3 循环神经网络</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#为什么不用standard-network"><span class="level-left"><span class="level-item">1.23.1</span><span class="level-item">为什么不用standard
+network</span></span></a></li><li><a class="level is-mobile" href="#rnn-forward过程的数学运算"><span class="level-left"><span class="level-item">1.23.2</span><span class="level-item">RNN
+forward过程的数学运算</span></span></a></li><li><a class="level is-mobile" href="#简化rnn的数学表示"><span class="level-left"><span class="level-item">1.23.3</span><span class="level-item">简化RNN的数学表示</span></span></a></li></ul></li><li><a class="level is-mobile" href="#通过时间的反向传播"><span class="level-left"><span class="level-item">1.24</span><span class="level-item">5.4 通过时间的反向传播</span></span></a></li><li><a class="level is-mobile" href="#其他rnn"><span class="level-left"><span class="level-item">1.25</span><span class="level-item">5.5 其他RNN</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#总结-1"><span class="level-left"><span class="level-item">1.25.1</span><span class="level-item">总结</span></span></a></li></ul></li><li><a class="level is-mobile" href="#语言模型和序列生成"><span class="level-left"><span class="level-item">1.26</span><span class="level-item">5.6 语言模型和序列生成</span></span></a></li></ul><li><a class="level is-mobile" href="#meta-learning"><span class="level-left"><span class="level-item">2</span><span class="level-item">Meta-learning</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#maml"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">MAML</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#model-pre-training和meta-learning的区别"><span class="level-left"><span class="level-item">2.1.1</span><span class="level-item">model
+pre-training和meta-learning的区别</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#机器人运动学"><span class="level-left"><span class="level-item">3</span><span class="level-item">机器人运动学</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#移动"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">移动</span></span></a></li><li><a class="level is-mobile" href="#转动旋转矩阵"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">转动、旋转矩阵</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#性质1"><span class="level-left"><span class="level-item">3.2.1</span><span class="level-item">性质1：</span></span></a></li><li><a class="level is-mobile" href="#性质-2"><span class="level-left"><span class="level-item">3.2.2</span><span class="level-item">性质 2：</span></span></a></li><li><a class="level is-mobile" href="#旋转矩阵的限定条件"><span class="level-left"><span class="level-item">3.2.3</span><span class="level-item">旋转矩阵的限定条件</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/hexo_blog/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/hexo_blog/2023/05/17/DeepLearningAndrewNg/"><img src="/hexo_blog/cover%5CDeepLearningAndrewNg-thumbnail.png" alt="DeepLearningAndrewNg"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/DeepLearningAndrewNg/">DeepLearningAndrewNg</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Courses/">Courses</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/"><img src="/hexo_blog/cover%5Clatex-thumbnail.png" alt="Render multi-line latex"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-05-16T16:00:00.000Z">2023-05-17</time></p><p class="title"><a href="/hexo_blog/2023/05/17/RenderMulti-lineLatex/">Render multi-line latex</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-14T16:00:00.000Z">2023-05-15</time></p><p class="title"><a href="/hexo_blog/2023/05/15/HexoImageNameIssues/">Hexo Image Name Issues</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-07T17:11:46.000Z">2022-03-08</time></p><p class="title"><a href="/hexo_blog/2022/03/08/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">Start your own Hexo blog</a></p><p class="categories"><a href="/hexo_blog/categories/Learn/">Learn</a> / <a href="/hexo_blog/categories/Learn/Skills/">Skills</a> / <a href="/hexo_blog/categories/Learn/Skills/Software/">Software</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-31T17:11:46.000Z">2022-02-01</time></p><p class="title"><a href="/hexo_blog/2022/02/01/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E9%80%89%E8%B4%AD/">移动硬盘购买</a></p></div></article></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/"><span class="level-start"><span class="level-item">Learn</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Courses/"><span class="level-start"><span class="level-item">Courses</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Skills/"><span class="level-start"><span class="level-item">Skills</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/hexo_blog/categories/Learn/Skills/Software/"><span class="level-start"><span class="level-item">Software</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/hexo_blog/tags/LaTeX/"><span class="tag">LaTeX</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/hexo_blog/"><img src="/hexo_blog/img/logo-voyager.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2023 Peng Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/hexo_blog/js/column.js"></script><script src="/hexo_blog/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/hexo_blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/hexo_blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/hexo_blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/hexo_blog/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
